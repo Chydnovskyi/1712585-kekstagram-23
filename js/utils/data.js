@@ -1,4 +1,4 @@
-import {getRandomIntInclusive} from './utils/get-randomInt-inclusive';
+import {getRandomIntInclusive} from './get-randomInt-inclusive';
 
 const NAMES = ['Артем', 'Татьяна', 'Михаил', 'Ирина', 'Екатерина'];
 const MASSAGES = [
