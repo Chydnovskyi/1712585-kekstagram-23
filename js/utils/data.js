@@ -1,4 +1,4 @@
-import {getRandomIntInclusive} from './get-randomInt-inclusive';
+import {getRandomIntInclusive} from './get-randomInt-inclusive.js';
 
 const NAMES = ['Артем', 'Татьяна', 'Михаил', 'Ирина', 'Екатерина'];
 const MASSAGES = [
@@ -33,7 +33,5 @@ function createRandomItem(index) {
 }
 
 const getRandomItems =  new Array(COUNT).fill(null).map((item, index) => createRandomItem(index));
-
-getRandomItems(25);
 
 export {getRandomItems};
