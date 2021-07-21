@@ -4,7 +4,7 @@ import {esc} from './esc.js';
 const template = document.querySelector('#render-error');
 const errorModal = template.content.cloneNode(true).querySelector('.error');
 
-const RenderError = function () {
+const renderError = function () {
   body.appendChild(errorModal);
   body.classList.add('modal-open');
   const closeButton =  errorModal.querySelector('.error__button');
@@ -27,4 +27,4 @@ const RenderError = function () {
   );
 };
 
-export {RenderError};
+export {renderError};

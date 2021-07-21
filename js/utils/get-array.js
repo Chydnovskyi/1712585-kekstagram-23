@@ -5,9 +5,7 @@ const getArray = function (arr) {
       result.push(str);
     }
   }
-
   return result;
-
 };
 
 const mix = function (arr) {

@@ -17,7 +17,7 @@
     <section class="img-filters  img-filters--inactive  container">
       <h2 class="img-filters__title  visually-hidden">Фильтр фотографий</h2>
       <form class="img-filters__form" action="index.html" method="get" autocomplete="off">
-        <button type=button class="img-filters__button  img-filters__button--active" id="filter-default">По умолчанию</button>
+        <button type=button class="img-filters__button" id="filter-default">По умолчанию</button>
         <button type=button class="img-filters__button" id="filter-random">Случайные</button>
         <button type=button class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
       </form>
@@ -35,12 +35,19 @@
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
-              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
+              <input
+                 type="file"
+                 id="upload-file"
+                 class="img-upload__input  visually-hidden"
+                 name="filename"
+                 accept="image/*"
+                 required
+               >
               <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
             </fieldset>
 
             <!-- Форма редактирования изображения -->
-            <div class="img-upload__overlay  hidden">
+            <div class="img-upload__overlay hidden">
               <div class="img-upload__wrapper">
                 <div class="img-upload__preview-container">
 
@@ -116,8 +123,16 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
-                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
+                  <input class="text__hashtags"
+                  name="hashtags"
+                  placeholder="#ХэшТег"
+                >
+                <textarea
+                  class="text__description"
+                  name="description"
+                  placeholder="Ваш комментарий..."
+                  maxlength="140"
+                ></textarea>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->
@@ -215,6 +230,16 @@
       </div>
     </section>
   </template>
+
+    <!-- Сообщение с ошибкой загрузки -->
+    <template id="render-error">
+      <section class="error">
+        <div class="error__inner">
+          <h2 class="error__title">Ошибка загрузки, попробуйте позже</h2>
+          <button type="button" class="error__button">Попробую позже(</button>
+        </div>
+      </section>
+    </template>
 
   <!-- Сообщение об успешной загрузке изображения -->
   <template id="success">

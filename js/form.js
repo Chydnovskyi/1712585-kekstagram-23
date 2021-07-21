@@ -2,7 +2,7 @@ import {esc} from './utils/esc.js';
 import {body} from './big-picture.js';
 import {getArray} from './utils/get-array.js';
 import {showError} from './utils/error.js';
-import {showSucces} from './utils/succses';
+import {showSucces} from './utils/succses.js';
 import {resetEffect} from './image-effect.js';
 import {setData} from './utils/data.js';
 import {URL} from './main.js';
