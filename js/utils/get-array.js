@@ -5,9 +5,12 @@ const getArray = function (arr) {
       result.push(str);
     }
   }
-
   return result;
-
 };
 
-export {getArray};
+const mix = function (arr) {
+  arr.sort(() => Math.random() - 0.5);
+  return arr;
+};
+
+export {getArray, mix};
