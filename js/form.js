@@ -1,6 +1,6 @@
-import {esc} from './utils/esc.js';
+import {isEsc} from './utils/util.js';
 import {body} from './big-picture.js';
-import {getArray} from './utils/get-array.js';
+import {getArray} from './utils/util.js';
 import {showError} from './utils/error.js';
 import {showSucces} from './utils/succses.js';
 import {resetEffect} from './image-effect.js';
@@ -36,7 +36,7 @@ const scaleControlBiggerHandler = function () {
   }
 };
 
-const editingScale = function () {
+const editScale = function () {
   scaleControlValue.value = 100;
   scaleControlSmaller.addEventListener('click', scaleControlSmallerHandler);
   scaleControlBigger.addEventListener('click', scaleControlBiggerHandler);
@@ -64,18 +64,13 @@ const resetInputValue = function () {
   resetEffect();
 };
 
-const isActiveElement = function (element) {
-  if (element === textDescription || element === textHashtags) {
-    return false;
-  }
-  return true;
-};
+const isActiveElement = (element) => !(element === textDescription || element === textHashtags);
 
 const validateHashtag = function () {
   const hashtags = textHashtags.value.split(' ');
   const re = /^#[A-Za-zА-Яа-я0-9]{1,19}$/;
   const errors = [];
-  let newHashtagsArray = [];
+  let newHashtags = [];
 
   hashtags.forEach((element) => {
     if (element[0] !== '#') {
@@ -84,13 +79,13 @@ const validateHashtag = function () {
     if (!(re.test(element))) {
       errors.push('После решетки могут быть только буквы и/или цифры.\nМаксимальная длина - 20 символов, включая решётку');
     }
-    newHashtagsArray.push(element.toLowerCase());
-    if (newHashtagsArray.length > 5){
+    newHashtags.push(element.toLowerCase());
+    if (newHashtags.length > 5){
       errors.push('Нельзя указать больше пяти хэш-тегов');
     }
   });
-  newHashtagsArray = getArray(newHashtagsArray);
-  textHashtags.value = newHashtagsArray.join(' ');
+  newHashtags = getArray(newHashtags);
+  textHashtags.value = newHashtags.join(' ');
   textHashtags.setCustomValidity(errors.join('. \n'));
 };
 
@@ -105,7 +100,7 @@ const closeImgUpload = function () {
 };
 
 const pressEsc = function (evt) {
-  if (esc(evt) && isActiveElement(document.activeElement)) {
+  if (isEsc(evt) && isActiveElement(document.activeElement)) {
     evt.preventDefault(evt);
     imgUploadOverlay.classList.add('hidden');
     body.classList.remove('modal-open');
@@ -124,7 +119,7 @@ const openUploadForm = function () {
   imgUploadClose.addEventListener('click', closeImgUpload);
   document.addEventListener('keydown', pressEsc);
   textHashtags.addEventListener('input', validateHashtag);
-  editingScale();
+  editScale();
 };
 
 uploadInput.addEventListener('change',openUploadForm);

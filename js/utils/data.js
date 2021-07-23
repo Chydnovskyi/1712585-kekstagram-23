@@ -17,14 +17,14 @@ const setData = function (URL,onSuccess,onError,data) {
     },
   ).then((response) => {
     if (response.ok) {
-      onSuccess();
+      onSuccess('Success');
     }
     else {
-      onError();
+      onError('Error');
     }
   })
     .catch(() => {
-      onError();
+      onError('Error');
     });
 };
 
