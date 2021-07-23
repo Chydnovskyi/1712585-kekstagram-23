@@ -1,5 +1,5 @@
 import {body} from '../big-picture.js';
-import {esc} from './esc.js';
+import {isEsc} from './util.js';
 
 const template = document.querySelector('#success');
 const successModal = template.content.cloneNode(true).querySelector('.success');
@@ -19,8 +19,8 @@ const showSucces = function () {
   );
   document.addEventListener(
     'keydown',(evt) => {
-      if (esc(evt)) {
-        body.removeChild(successModal);
+      if (isEsc(evt)) {
+        // body.removeChild(successModal);
         body.classList.remove('modal-open');
       }
     },

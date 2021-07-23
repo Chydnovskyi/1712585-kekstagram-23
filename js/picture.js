@@ -1,10 +1,9 @@
-import {openBigPicture } from './big-picture.js';
+import {openBigPicture} from './big-picture.js';
 
+const RERENDER_DELAY = 500;
 const pictures = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
 const pictureTemplate = document.querySelector('#picture');
-
-const RERENDER_DELAY = 500;
 
 let clickHandler;
 
@@ -15,7 +14,7 @@ const debounce = function (func, wait, immediate) {
     const context = this;
     const args = arguments;
 
-    const later = function() {
+    const checkLater = function() {
       timeout = null;
       if (!immediate) {func.apply(context, args);}
     };
@@ -24,7 +23,7 @@ const debounce = function (func, wait, immediate) {
 
     clearTimeout(timeout);
 
-    timeout = setTimeout(later, wait);
+    timeout = setTimeout(checkLater, wait);
 
     if (callNow) {func.apply(context, args);}
   };

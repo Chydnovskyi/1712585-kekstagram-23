@@ -1,12 +1,12 @@
 import {renderPictures,clearPictures} from './picture.js';
-import {mix} from './utils/get-array.js';
+import {mix} from './utils/util.js';
 
 const imgFilters = document.querySelector('.img-filters');
 const buttonDefault = imgFilters.querySelector('#filter-default');
 const buttonRandom = imgFilters.querySelector('#filter-random');
 const buttonDiscussed = imgFilters.querySelector('#filter-discussed');
 
-const gerSort = function (data) {
+const sortItems = function (data) {
   data.sort((aaa, bbb) => bbb.comments.length - aaa.comments.length);
   return data;
 };
@@ -39,7 +39,7 @@ const onImgFilters = function (data) {
       if (button.target.id === 'filter-discussed') {
         button.target.classList.add('img-filters__button--active');
         clearPictures();
-        renderPictures(gerSort(data.slice()));
+        renderPictures(sortItems(data.slice()));
       }
     }
   });

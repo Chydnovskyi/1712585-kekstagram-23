@@ -5,16 +5,19 @@ const effectLevel = document.querySelector('.effect-level');
 const effectLevelContainer = document.querySelector('.effect-level__slider');
 const effectLevelValue = document.querySelector('.effect-level__value');
 const effects = document.querySelector('.effects__list');
-
+const start = 100;
+const min = 0;
+const step = 1;
+const connect = 'lower';
 
 noUiSlider.create(effectLevelContainer, {
-  start: 100,
+  start: start,
   range: {
-    'min': 0,
-    'max': 100,
+    min: min,
+    max: start,
   },
-  step: 1,
-  connect: 'lower',
+  step: step,
+  connect: connect,
 });
 
 let effect = 'none';

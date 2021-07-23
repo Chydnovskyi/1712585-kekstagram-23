@@ -1,5 +1,5 @@
 import {body} from '../big-picture.js';
-import {esc} from '../utils/esc.js';
+import {isEsc} from './util.js';
 
 const template = document.querySelector('#error');
 const errorModal = template.content.cloneNode(true).querySelector('.error');
@@ -19,7 +19,7 @@ const showError = function () {
   );
   document.addEventListener(
     'keydown',(evt) => {
-      if (esc(evt)) {
+      if (isEsc(evt)) {
         body.removeChild(errorModal);
         body.classList.remove('modal-open');
       }

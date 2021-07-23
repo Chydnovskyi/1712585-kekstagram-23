@@ -1,4 +1,4 @@
-import {esc} from './utils/esc.js';
+import {isEsc} from './utils/util.js';
 
 const body = document.body;
 const pictures = document.querySelector('.pictures');
@@ -7,7 +7,7 @@ const closeButton = bigPicture.querySelector('.big-picture__cancel');
 const socialCommentCount = document.querySelector('.social__comment-count');
 const commentsCount = document.querySelector('.comments-count');
 
-const cancelTransition = function (evt) {
+const onTransitionCancel = function (evt) {
   if (evt.target.classList.contains('picture__img')) {
     evt.preventDefault();
   }
@@ -20,7 +20,7 @@ const closeButtonHandler = function  () {
 };
 
 const closeButtonHandlerEscape = function (evt) {
-  if (esc(evt)) {
+  if (isEsc(evt)) {
     evt.preventDefault();
     bigPicture.classList.add('hidden');
     body.classList.remove('modal-open');
@@ -28,7 +28,7 @@ const closeButtonHandlerEscape = function (evt) {
   }
 };
 
-pictures.addEventListener('click',cancelTransition);
+pictures.addEventListener('click',onTransitionCancel);
 
 const getCountOfComment = function (countAll) {
   const countVisibleComment = document.querySelector('.social__comments').children.length;
@@ -44,9 +44,6 @@ const isMoreCommentsVisible = function (value,button) {
 };
 
 const getComment = function (commentsList,commentsToPush) {
-
-  // const comments = commentsToPush;
-
   commentsToPush.forEach((element) => {
     const comment = document.createElement('li');
     comment.classList.add('social__comment');
