@@ -1,4 +1,5 @@
 import {isEsc} from './utils/util.js';
+import {successModal} from './utils/succses.js';
 
 const body = document.body;
 const pictures = document.querySelector('.pictures');
@@ -72,6 +73,7 @@ const openBigPicture = function (picture,data) {
   if (picture.target.classList.contains('picture__img')) {
     bigPicture.classList.remove('hidden');
 
+    successModal.remove();
     body.classList.add('modal-open');
 
     closeButton.addEventListener('click',closeButtonHandler);

@@ -27,4 +27,4 @@ const showSucces = function () {
   );
 };
 
-export {showSucces};
+export {showSucces, successModal};
