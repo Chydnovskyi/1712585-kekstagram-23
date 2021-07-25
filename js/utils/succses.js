@@ -20,7 +20,7 @@ const showSucces = function () {
   document.addEventListener(
     'keydown',(evt) => {
       if (isEsc(evt)) {
-        // body.removeChild(successModal);
+        successModal.remove();
         body.classList.remove('modal-open');
       }
     },
