@@ -7,7 +7,10 @@ const effectLevelValue = document.querySelector('.effect-level__value');
 const effects = document.querySelector('.effects__list');
 const start = 100;
 const min = 0;
+const max = 3;
 const step = 1;
+const stepOne = 0.1;
+
 const connect = 'lower';
 
 noUiSlider.create(effectLevelContainer, {
@@ -40,11 +43,11 @@ effects.addEventListener('click',(evt) => {
     if (effect === 'chrome') {
       effectLevelContainer.noUiSlider.updateOptions({
         range: {
-          'min': 0,
-          'max': 1,
+          min: min,
+          max: step,
         },
-        step: 0.1,
-        start: 1,
+        step: stepOne,
+        start: step,
       });
 
       effectLevelContainer.noUiSlider.on('update',(__,handle,unencoded) => {
@@ -56,11 +59,11 @@ effects.addEventListener('click',(evt) => {
     if (effect === 'sepia') {
       effectLevelContainer.noUiSlider.updateOptions({
         range: {
-          'min': 0,
-          'max': 1,
+          min: min,
+          max: step,
         },
-        step: 0.1,
-        start: 1,
+        step: stepOne,
+        start: step,
       });
 
       effectLevelContainer.noUiSlider.on('update',(__,handle,unencoded) => {
@@ -72,11 +75,11 @@ effects.addEventListener('click',(evt) => {
     if (effect === 'marvin') {
       effectLevelContainer.noUiSlider.updateOptions({
         range: {
-          'min': 0,
-          'max': 100,
+          min: min,
+          max: start,
         },
-        step: 1,
-        start: 100,
+        step: step,
+        start: start,
       });
 
       effectLevelContainer.noUiSlider.on('update',(__,handle,unencoded) => {
@@ -88,11 +91,11 @@ effects.addEventListener('click',(evt) => {
     if (effect === 'phobos') {
       effectLevelContainer.noUiSlider.updateOptions({
         range: {
-          'min': 0,
-          'max': 3,
+          min: min,
+          max: max,
         },
-        step: 0.1,
-        start: 3,
+        step: stepOne,
+        start: max,
       });
 
       effectLevelContainer.noUiSlider.on('update',(__,handle,unencoded) => {
@@ -104,11 +107,11 @@ effects.addEventListener('click',(evt) => {
     if (effect === 'heat') {
       effectLevelContainer.noUiSlider.updateOptions({
         range: {
-          'min': 0,
-          'max': 3,
+          min: min,
+          max: max,
         },
-        step: 0.1,
-        start: 3,
+        step: stepOne,
+        start: max,
       });
 
       effectLevelContainer.noUiSlider.on('update',(__,handle,unencoded) => {

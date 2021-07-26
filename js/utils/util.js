@@ -14,9 +14,7 @@ const mix = function (arr) {
 };
 
 const isEsc = function (evt) {
-  if (evt.keyCode === 27) {
-    return true;
-  }
+  return evt.keyCode === 27;
 };
 
 function lineLength(rowLine, maxLength) {

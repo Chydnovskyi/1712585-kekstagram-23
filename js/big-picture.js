@@ -13,18 +13,18 @@ const onTransitionCancel = function (evt) {
   }
 };
 
-const closeButtonHandler = function  () {
+const onButtonClick = function  () {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
-  closeButton.removeEventListener('click',closeButtonHandler);
+  closeButton.removeEventListener('click',onButtonClick);
 };
 
-const closeButtonHandlerEscape = function (evt) {
+const onButtonClickEscape = function (evt) {
   if (isEsc(evt)) {
     evt.preventDefault();
     bigPicture.classList.add('hidden');
     body.classList.remove('modal-open');
-    document.removeEventListener('keydown', closeButtonHandlerEscape);
+    document.removeEventListener('keydown', onButtonClickEscape);
   }
 };
 
@@ -73,8 +73,8 @@ const openBigPicture = function (picture,data) {
     bigPicture.classList.remove('hidden');
     body.classList.add('modal-open');
 
-    closeButton.addEventListener('click',closeButtonHandler);
-    document.addEventListener('keydown',closeButtonHandlerEscape);
+    closeButton.addEventListener('click',onButtonClick);
+    document.addEventListener('keydown',onButtonClickEscape);
     const picturesCollection = document.querySelectorAll('.picture');
     const arrPictureColl = Array.from(picturesCollection);
     const link = picture.target.parentNode;

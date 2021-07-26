@@ -5,6 +5,7 @@ import './form.js';
 import './utils/error.js';
 import './utils/succses.js';
 import './image-effect.js';
+import './upload-img.js';
 import {renderError} from './utils/render-error.js';
 import {renderPictures} from './picture.js';
 import {setUploadForm,closeImgUpload} from './form.js';
